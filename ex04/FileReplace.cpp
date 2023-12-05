@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   FileReplace.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokazaki <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:34:10 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/05 17:38:23 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:33:31 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FileReplace.hpp"
-
-FileReplace::FileReplace(const std::string& filename, const std::string& s1, const std::string& s2)
-    : filename(filename), s1(s1), s2(s2) {}
 
 void FileReplace::performReplacement() {
     std::string content = readFileContent();
@@ -54,12 +51,16 @@ void FileReplace::writeFileContent(const std::string& content) {
     std::cout << "Replacement successful. Result saved to " << filename + ".replace" << std::endl;
 }
 
-void	FileReplace::openFile(std::string filename) {
+void	FileReplace::openFile() {
     std::ifstream ifs(filename);
-
     if (ifs.fail()) {
         std::cerr << "Failed to open file." << std::endl;
-		exit -1;
+		exit(1);
     }
 }
 
+void	FileReplace::setArgs(char *argv_1, char *argv_2, char *argv_3) {
+    filename = argv_1;
+    s1 = argv_2;
+    s2 = argv_3;
+}

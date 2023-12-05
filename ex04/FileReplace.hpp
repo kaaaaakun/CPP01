@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   FileReplace.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokazaki <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:35:23 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/05 17:38:21 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/05 20:24:01 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef FILE_REPLACE_HPP
+# define FILE_REPLACE_HPP
 
 #include <fstream>
 #include <iostream>
@@ -16,18 +19,18 @@
 #include <string>
 
 class FileReplace {
-public:
-    std::ifstream ifs;
-    void performReplacement();
-
 private:
+    std::ifstream ifs;
     std::string filename;
     std::string s1;
     std::string s2;
-
-    void    openFile(std::string filename);
+    void performReplacement();
     std::string readFileContent();
     void writeFileContent(const std::string& content);
+
+public:
+    void fileReplace();
+    void openFile();
+    void setArgs(char *argv_1, char *argv_2, char *argv_3);
 };
-
-
+#endif
