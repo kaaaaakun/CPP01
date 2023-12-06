@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:34:10 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/06 21:49:21 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:46:31 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ void FileReplace::setArgs(char *argv_1, char *argv_2, char *argv_3) {
     s2 = argv_3;
 }
 
-void FileReplace::openFile() {
-}
-
-
 void FileReplace::fileReplace() {
     std::ifstream ifs(filename);
     std::ofstream ofs(filename + ".replace");
@@ -56,13 +52,15 @@ void FileReplace::fileReplace() {
         if (ifs.eof()) {
             break;
         }
-        while (line[0] != '\0') {
-            n = line.find(s1);
-            std::cout << line.substr(0, n) << s2;
-            line = line.substr(n + s1.length());
-        }
-        ofs << line << std::endl;
-        std::cout << line << std::endl;
+		while (1) {
+			n = line.find(s1);
+			if (n == std::string::npos) {
+				break;
+			}
+			ofs << line.substr(0, n) << s2;
+			line = line.substr(n + s1.length());
+		}
+		ofs << line << std::endl;
+
     }
-    std::cout << std::endl;
 }

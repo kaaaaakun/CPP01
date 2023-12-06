@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 21:46:14 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/06 21:30:55 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:44:59 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int main(int argc, char* argv[]) {
 	if (fr.checkArgs(argc, argv) == false)
 		return 1;
     fr.setArgs(argv[1], argv[2], argv[3]);
-    fr.openFile();
     fr.fileReplace();
     return 0;
 }

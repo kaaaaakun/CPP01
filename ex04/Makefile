@@ -6,7 +6,7 @@
 #    By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:08:51 by tokazaki          #+#    #+#              #
-#    Updated: 2023/12/06 21:50:52 by tokazaki         ###   ########.fr        #
+#    Updated: 2023/12/07 00:08:40 by tokazaki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,17 @@ fclean: clean
 re: fclean all
 
 # Other targets +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+.PHONY: all clean fclean re
+
 cfile:
 	find . -name "*.cpp" | sed 's/\.\///g' \
 		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//' | pbcopy
+
+run: all
+	./file_replace Makefile " " "+" ; cat Makefile.replace
+
+del: fclean
+	$(RM) *.replace
 
 -include $(DEPENDS)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
