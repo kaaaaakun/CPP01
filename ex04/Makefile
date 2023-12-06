@@ -6,7 +6,7 @@
 #    By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:08:51 by tokazaki          #+#    #+#              #
-#    Updated: 2023/12/04 01:25:12 by tokazaki         ###   ########.fr        #
+#    Updated: 2023/12/06 21:50:52 by tokazaki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,16 @@ NAME = file_replace
 
 # Files & Command +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 SRCS	= \
-	main.cpp
+	main.cpp \
+	FileReplace.cpp
+
 OBJDIR	= obj
 OBJS    = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
 DEPENDS	= $(OBJS:.o=.d)
 
 # -- flags --
 CXX 		= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 CXXFLAGS	+= -MMD -MP
 
 # -- command --
@@ -50,7 +52,7 @@ re: fclean all
 # Other targets +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 cfile:
 	find . -name "*.cpp" | sed 's/\.\///g' \
-		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//'
+		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//' | pbcopy
 
 -include $(DEPENDS)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#

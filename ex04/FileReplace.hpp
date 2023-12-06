@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:35:23 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/06 13:55:35 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/06 21:46:06 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,18 @@
 #include <string>
 
 class FileReplace {
-private:
-    std::ifstream ifs;
-    std::ifstream ifsReplace;
+ private:
     std::string filename;
     std::string s1;
     std::string s2;
-    void performReplacement();
-    std::string readFileContent();
-    void writeFileContent(const std::string& content);
+    //    void performReplacement();
+    //    std::string readFileContent();
+    //    void writeFileContent(const std::string& content);
 
-public:
+ public:
     void fileReplace();
     void openFile();
     void setArgs(char *argv_1, char *argv_2, char *argv_3);
-	bool checkArgs(int argc, char* argv[]);
+    bool checkArgs(int argc, char* argv[]);
 };
 #endif
