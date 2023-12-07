@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 21:46:14 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/04 01:29:43 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:06:48 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main() {
     harl.complain("WARNING");
     harl.complain("ERROR");
     harl.complain("UNKNOWN_LEVEL");
+    harl.complain("");
 
     return 0;
 }

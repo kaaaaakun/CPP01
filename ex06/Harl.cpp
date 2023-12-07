@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 01:30:13 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/04 19:01:53 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:54:36 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,27 @@ Harl::Harl() {
 
 void    Harl::complain(const std::string level) {
     std::string levels[MAX_LEVEL] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    for (size_t i = 0; i < MAX_LEVEL ; i++) {
-        if (levels[i] == level)
-        {
-			for (; i < MAX_LEVEL ; i++) {
-				(this->*foo[i])();
-            }
-			return ;
+    size_t i = 0;
+    for (; i < MAX_LEVEL ; i++) {
+        if (levels[i] == level) {
+            break;
         }
     }
-    std::cerr << "Unknown level: " << level << std::endl;
+    switch (i)
+    {
+        case DEBUG:
+            debugPrint();
+        case INFO:
+            infoPrint();
+        case WARNING:
+            warningPrint();
+        case ERROR:
+            errorPrint();
+            break;
+        default:
+            std::cerr << "Unknown level: " << level << std::endl;
+            break;
+    }
 }
 
 void Harl::debugPrint() {

@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 01:30:01 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/04 18:57:39 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:56:31 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 #define INFO_MSG "[INFO]\nI cannot believe adding extra bacon costs more money.\nYou didn’t put enough bacon in my burger!\nIf you did, I wouldn’t be asking for more!\n"
 #define WARNING_MSG "[WARNING]\nI think I deserve to have some extra bacon for free.\nI’ve been coming for years whereas you started working here since last month.\n"
 #define ERROR_MSG "[ERROR]\nThis is unacceptable! I want to speak to the manager now.\n"
+
+enum {
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+};
 
 class Harl {
 private:
