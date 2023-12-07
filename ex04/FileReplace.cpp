@@ -6,7 +6,7 @@
 /*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:34:10 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/06 23:46:31 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:15:08 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ void FileReplace::fileReplace() {
     }
     while (1) {
         std::getline(ifs, line);
+        while (1) {
+            n = line.find(s1);
+            if (n == std::string::npos) {
+                break;
+            }
+            ofs << line.substr(0, n) << s2;
+            line = line.substr(n + s1.length());
+        }
+        ofs << line;
         if (ifs.eof()) {
             break;
         }
-		while (1) {
-			n = line.find(s1);
-			if (n == std::string::npos) {
-				break;
-			}
-			ofs << line.substr(0, n) << s2;
-			line = line.substr(n + s1.length());
-		}
-		ofs << line << std::endl;
-
+        ofs << std::endl;
     }
 }
