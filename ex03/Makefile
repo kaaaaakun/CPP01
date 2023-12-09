@@ -6,11 +6,11 @@
 #    By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/07 16:08:51 by tokazaki          #+#    #+#              #
-#    Updated: 2023/12/03 23:47:13 by tokazaki         ###   ########.fr        #
+#    Updated: 2023/12/09 14:10:02 by tokazaki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Unnecessaryviolence_violence
+NAME = ex03
 
 # Files & Command +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
 SRCS	= \
@@ -51,6 +51,11 @@ fclean: clean
 re: fclean all
 
 # Other targets +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+leak:
+	CXXFLAGS += -g3 -fsanitize=leak
+	SRCS = += .leaks.cpp
+	
+
 cfile:
 	find . -name "*.cpp" | sed 's/\.\///g' \
 		| awk '{print "\t"$$0" \\"}' | sed '$$s/ \\//'

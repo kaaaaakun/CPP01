@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tokazaki <tokazaki@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: tokazaki <tokazaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 21:46:58 by tokazaki          #+#    #+#             */
-/*   Updated: 2023/12/03 18:12:34 by tokazaki         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:11:31 by tokazaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ public:
 };
 
 Zombie* zombieHorde(int N, std::string name);
-//Zombie* newZombie(std::string name);
-//void    randomChump(std::string name);
 
 #endif
