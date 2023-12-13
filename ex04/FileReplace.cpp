@@ -35,17 +35,18 @@ void FileReplace::setArgs(char *argv_1, char *argv_2, char *argv_3) {
 
 void FileReplace::fileReplace() {
     std::ifstream ifs(filename);
-    std::ofstream ofs(filename + ".replace");
     std::string line;
     std::string::size_type n;
 
     if (ifs.fail()) {
         std::cerr << "Failed to open file." << std::endl;
-        exit(1);
+        std::exit(EXIT_FAILURE);
     }
+
+    std::ofstream ofs(filename + ".replace");
     if (ofs.fail()) {
         std::cerr << "Failed to create/overwrite file: " << filename + ".replace" << std::endl;
-        exit(1);
+        std::exit(EXIT_FAILURE);
     }
     while (1) {
         std::getline(ifs, line);
